@@ -1,13 +1,4 @@
 # Starter pipeline
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'restore'
-    projects: 'https://github.com/Kirthika07/Portfolio.git'
-    feedsToUse: 'select'
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
@@ -15,6 +6,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: 'https://github.com/Kirthika07/Portfolio.git'
+    feedsToUse: 'select'
+  displayName: 'Restore NuGet packages'
+
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
