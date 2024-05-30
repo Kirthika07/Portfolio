@@ -1,8 +1,4 @@
 # Starter pipeline
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: 'https://github.com/Kirthika07/Portfolio.git'
 trigger:
 - main
 
@@ -17,8 +13,19 @@ steps:
     feedsToUse: 'select'
   displayName: 'Restore NuGet packages'
 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: 'https://github.com/Kirthika07/Portfolio.git'
+  displayName: 'Build the project'
+
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms
+
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
